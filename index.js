@@ -6,6 +6,7 @@ const tourRouter = require('./routes/tourRoute');
 const internetServiceRouter = require('./routes/internetServiceRoute');
 const gasServiceRouter = require('./routes/gasServiceRoutes');
 const oilServiceRouter = require('./routes/oilserviceRoute');
+const userRouter = require('./routes/userRoute');
 // middlewerre
 dotenv.config();
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use('/tours', tourRouter);
 app.use('/internetservice', internetServiceRouter);
 app.use('/gasservice', gasServiceRouter);
 app.use('/oilservice', oilServiceRouter);
+app.use('/users', userRouter);
 
 // server default route
 app.get('/', (req, res) => {
