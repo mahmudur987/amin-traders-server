@@ -21,7 +21,7 @@ exports.postUser = async (req, res) => {
 exports.getUsers = async (req, res) => {
   try {
     const result = await User.find();
-    return res.send({ status: 'success', data: result });
+    return res.send({ status: 'success', count: result.length, data: result });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });
   }
