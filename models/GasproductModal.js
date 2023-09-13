@@ -48,6 +48,6 @@ const gaspackageSchema = new mongoose.Schema({
   },
 });
 
-const GasPackage = mongoose.model('Product', gaspackageSchema);
+const GasPackage = mongoose.model('Gas', gaspackageSchema);
 
 module.exports = GasPackage;
