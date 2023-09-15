@@ -17,6 +17,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  role: {
+    type: String,
+    default: 'user',
+  },
+  jonedDate: {
+    type: Date,
+    default: Date.now,
+  },
   address: String, // You can specify this as optional since it's an empty string in your example
 });
 
