@@ -30,7 +30,7 @@ exports.getUser = async (req, res) => {
   const email = req.params.email;
   try {
     const result = await User.findOne({ email });
-    console.log(result);
+
     return res.send({ status: 'success', data: result });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });

@@ -13,6 +13,10 @@ const orderSchema = new mongoose.Schema({
   paymentAmount: { type: Number },
   paymentStatus: { type: String },
   orderStatus: { type: String },
+  delevery: {
+    status: { type: Boolean, default: false },
+    deleveryData: { type: Date },
+  },
 });
 
 // Create the Order model
