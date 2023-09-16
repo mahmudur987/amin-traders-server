@@ -28,7 +28,6 @@ exports.getInternetUsers = async (req, res) => {
 };
 exports.getInternetUser = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
   try {
     const result = await InternetUser.findById(id);
 
