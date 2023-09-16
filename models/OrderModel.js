@@ -13,9 +13,9 @@ const orderSchema = new mongoose.Schema({
   paymentAmount: { type: Number },
   paymentStatus: { type: String },
   orderStatus: { type: String },
-  delevery: {
+  delivery: {
     status: { type: Boolean, default: false },
-    deleveryData: { type: Date },
+    deliveryDate: { type: Date },
   },
 });
 

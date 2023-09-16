@@ -33,13 +33,36 @@ exports.getOrders = async (req, res) => {
 };
 exports.postOrderRecived = async (req, res) => {
   const id = req.params.id;
-
   try {
     const result = await Order.findByIdAndUpdate(id, {
       orderStatus: 'recived',
     });
     return res.send({ status: 'success', count: result.length, data: result });
   } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};
+exports.postOrderDeliver = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const result = await Order.findByIdAndUpdate(
+      id,
+      {
+        $set: {
+          orderStatus: 'delivered',
+          paymentStatus: 'paid',
+          'delivery.status': true,
+          'delivery.deliveryDate': new Date(),
+        },
+      },
+      { new: true }
+    );
+
+    console.log('Updated document:', result); // Add this line
+
+    return res.send({ status: 'success', count: result.length, data: result });
+  } catch (err) {
+    console.error('Error updating order:', err); // Add this line
     return res.status(400).send({ status: 'Error', Error: err });
   }
 };

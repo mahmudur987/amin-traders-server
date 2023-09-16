@@ -4,10 +4,11 @@ const {
   postUser,
   getUsers,
   getUser,
+  updateUser,
 } = require('../controllers/userController');
 
 router.route('/').get(getUsers).post(postUser);
-router.route('/:email').get(getUser);
+router.route('/:email').get(getUser).post(updateUser);
 // router.route('/tour-states').get(getTourState);
 // router.route('/monthly-plan/:year').get(getMonthlyPlan);
 // router.route('/').get(getAllTours).post(createTours);
