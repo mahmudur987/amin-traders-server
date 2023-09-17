@@ -34,6 +34,10 @@ const oilSchema = new mongoose.Schema({
       type: Number,
     },
   },
+  bestDeals: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const OilPackage = mongoose.model('Oil', oilSchema);

@@ -3,9 +3,12 @@ const router = express.Router();
 const {
   getAllPackage,
   postAllPackage,
+  updateInternetPackage,
+  deleteInternetPackage,
 } = require('./../controllers/internetServiceControllers');
 
 router.route('/allpackage').get(getAllPackage).post(postAllPackage);
+router.route('/:id').post(updateInternetPackage).delete(deleteInternetPackage);
 // router.route('/tour-states').get(getTourState);
 // router.route('/monthly-plan/:year').get(getMonthlyPlan);
 // router.route('/').get(getAllTours).post(createTours);

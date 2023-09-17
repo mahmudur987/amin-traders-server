@@ -46,6 +46,10 @@ const gaspackageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  bestDeals: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const GasPackage = mongoose.model('Gas', gaspackageSchema);

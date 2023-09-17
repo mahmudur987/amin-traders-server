@@ -22,3 +22,25 @@ exports.postAllPackage = async (req, res) => {
     return res.status(400).send({ status: 'Error', Error: err });
   }
 };
+exports.updateInternetPackage = async (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+  try {
+    const result = await InternetPackage.findByIdAndUpdate(id, data);
+
+    return res.send({ status: 'success', data: result });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};
+exports.deleteInternetPackage = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const result = await InternetPackage.findByIdAndDelete(id);
+
+    return res.send({ status: 'success', data: result });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};

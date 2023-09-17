@@ -24,6 +24,10 @@ const internetPackageSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  bestDeals: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const InternetPackage = mongoose.model(
