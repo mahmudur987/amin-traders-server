@@ -23,7 +23,7 @@ const oilSchema = new mongoose.Schema({
   },
   publishDate: {
     type: Date,
-    default: Date.now,
+    default: new Date(),
   },
   offer: {
     isOffer: {

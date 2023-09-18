@@ -5,9 +5,10 @@ const {
   postAllPackage,
   deleteGasPackage,
   updateGasPackage,
+  postPackage,
 } = require('./../controllers/GasServiceController');
 
-router.route('/allgaspackage').get(getAllPackage).post(postAllPackage);
+router.route('/allgaspackage').get(getAllPackage).post(postPackage);
 router.route('/:id').post(updateGasPackage).delete(deleteGasPackage);
 // router.route('/monthly-plan/:year').get(getMonthlyPlan);
 // router.route('/').get(getAllTours).post(createTours);

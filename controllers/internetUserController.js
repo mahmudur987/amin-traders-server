@@ -75,3 +75,15 @@ exports.UpdateInternetBill = async (req, res) => {
     return res.status(400).send({ status: 'Error', Error: err });
   }
 };
+exports.UpdateInternetUserInfo = async (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+
+  try {
+    const user = await InternetUser.findByIdAndUpdate(id, data);
+
+    return res.send({ status: 'success', data: user });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};

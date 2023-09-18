@@ -5,9 +5,10 @@ const {
   postAllPackage,
   updateInternetPackage,
   deleteInternetPackage,
+  postPackage,
 } = require('./../controllers/internetServiceControllers');
 
-router.route('/allpackage').get(getAllPackage).post(postAllPackage);
+router.route('/allpackage').get(getAllPackage).post(postPackage);
 router.route('/:id').post(updateInternetPackage).delete(deleteInternetPackage);
 // router.route('/tour-states').get(getTourState);
 // router.route('/monthly-plan/:year').get(getMonthlyPlan);

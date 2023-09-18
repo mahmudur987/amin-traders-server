@@ -5,11 +5,11 @@ const {
   postAllPackage,
   deleteOilPackage,
   updateOilPackage,
+  postAPackage,
 } = require('./../controllers/oilServeceController');
-const { deleteGasPackage } = require('../controllers/GasServiceController');
 
-router.route('/alloilpackage').get(getAllPackage).post(postAllPackage);
-router.route('/:id ').post(updateOilPackage).delete(deleteGasPackage);
+router.route('/alloilpackage').get(getAllPackage).post(postAPackage);
+router.route('/:id').post(updateOilPackage).delete(deleteOilPackage);
 // router.route('/tour-states').get(getTourState);
 // router.route('/monthly-plan/:year').get(getMonthlyPlan);
 // router.route('/').get(getAllTours).post(createTours);

@@ -21,6 +21,16 @@ exports.postAllPackage = async (req, res) => {
     return res.status(400).send({ status: 'Error', Error: err });
   }
 };
+exports.postPackage = async (req, res) => {
+  const data = req.body;
+  console.log(data);
+  try {
+    const result = await GasPackage.create(data);
+    return res.send({ status: 'success', data: result });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};
 exports.updateGasPackage = async (req, res) => {
   const id = req.params.id;
   const data = req.body;
