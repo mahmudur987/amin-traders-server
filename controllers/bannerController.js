@@ -5,9 +5,10 @@ app.use(express.json());
 
 exports.postBanner = async (req, res) => {
   const data = req.body;
-
+  console.log(data);
   try {
     const postBanner = await Banner.create(data);
+    // const postBanner = await Banner.insertMany(data);
     return res.send({ status: 'success', data: postBanner });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });

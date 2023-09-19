@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
-const validBackgroundOptions = ['homePage', 'oilPage', 'gasPage'];
+const validBackgroundOptions = [
+  'homePage',
+  'oilPage',
+  'gasPage',
+  'internetPage',
+];
 
 const BannerSchema = new mongoose.Schema({
   bannerFor: {
@@ -14,11 +19,11 @@ const BannerSchema = new mongoose.Schema({
   },
   heading: {
     type: String,
-    required: true,
+    default: '',
   },
   text: {
     type: String,
-    required: true,
+    default: '',
   },
   publishDate: {
     type: Date,
