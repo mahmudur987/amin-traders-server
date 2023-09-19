@@ -9,6 +9,7 @@ const oilServiceRouter = require('./routes/oilserviceRoute');
 const userRouter = require('./routes/userRoute');
 const orderRouter = require('./routes/orderRoute');
 const internetUserRouter = require('./routes/internetUserRoute');
+const BannerRouter = require('./routes/bannerRoute');
 // middlewerre
 dotenv.config();
 app.use(express.json());
@@ -33,6 +34,7 @@ app.use('/oilservice', oilServiceRouter);
 app.use('/users', userRouter);
 app.use('/orders', orderRouter);
 app.use('/internetusers', internetUserRouter);
+app.use('/banner', BannerRouter);
 
 // server default route
 app.get('/', (req, res) => {
