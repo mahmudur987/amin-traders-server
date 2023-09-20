@@ -13,6 +13,7 @@ const orderSchema = new mongoose.Schema({
   paymentAmount: { type: Number },
   paymentStatus: { type: String },
   orderStatus: { type: String },
+  orderQuantity: { type: Number },
   delivery: {
     status: { type: Boolean, default: false },
     deliveryDate: { type: Date },
