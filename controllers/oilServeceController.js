@@ -13,6 +13,15 @@ exports.getAllPackage = async (req, res) => {
     return res.status(400).send({ status: 'Error', Error: err });
   }
 };
+exports.getAPackage = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const result = await OilPackage.findById(id);
+    return res.send({ status: 'success', data: result });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};
 exports.postAllPackage = async (req, res) => {
   const data = req.body;
 

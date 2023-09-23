@@ -11,6 +11,7 @@ const orderRouter = require('./routes/orderRoute');
 const cartRouter = require('./routes/cartRoute');
 const internetUserRouter = require('./routes/internetUserRoute');
 const BannerRouter = require('./routes/bannerRoute');
+const recentViewedRouter = require('./routes/recentViewedRoute');
 // middlewerre
 dotenv.config();
 app.use(express.json());
@@ -37,6 +38,7 @@ app.use('/orders', orderRouter);
 app.use('/cart', cartRouter);
 app.use('/internetusers', internetUserRouter);
 app.use('/banner', BannerRouter);
+app.use('/recentview', recentViewedRouter);
 
 // server default route
 app.get('/', (req, res) => {

@@ -6,10 +6,15 @@ const {
   deleteOilPackage,
   updateOilPackage,
   postAPackage,
+  getAPackage,
 } = require('./../controllers/oilServeceController');
 
 router.route('/alloilpackage').get(getAllPackage).post(postAPackage);
-router.route('/:id').post(updateOilPackage).delete(deleteOilPackage);
+router
+  .route('/:id')
+  .get(getAPackage)
+  .post(updateOilPackage)
+  .delete(deleteOilPackage);
 // router.route('/tour-states').get(getTourState);
 // router.route('/monthly-plan/:year').get(getMonthlyPlan);
 // router.route('/').get(getAllTours).post(createTours);

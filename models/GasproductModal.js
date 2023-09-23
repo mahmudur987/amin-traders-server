@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const gaspackageSchema = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   picture: {
     type: String,
     required: true,

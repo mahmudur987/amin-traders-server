@@ -8,7 +8,12 @@ const orderSchema = new mongoose.Schema({
   userAddress: { type: String },
   serviceName: { type: String },
   packageName: { type: String },
-  packageId: { type: mongoose.Schema.Types.ObjectId, ref: 'InternetPackage' },
+  packageId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'InternetPackage',
+    ref: 'OilPackage',
+    ref: 'GasPackage',
+  },
   orderDate: { type: Date, default: Date.now },
   paymentAmount: { type: Number },
   paymentStatus: { type: String },
