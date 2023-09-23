@@ -9,15 +9,9 @@ const recentlyViewedSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Gas',
-      unique: true,
     },
   ],
-  bagProduct: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'InternetPackage',
-    },
-  ],
+
   oilProduct: [
     {
       type: mongoose.Schema.Types.ObjectId,

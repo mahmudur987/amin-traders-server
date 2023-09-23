@@ -9,6 +9,7 @@ exports.postOrder = async (req, res) => {
 
   try {
     const updateUser = await User.findOne({ email: data.userEmail });
+
     if (!updateUser) throw new Error('User not found');
     if (!updateUser.address) {
       updateUser.address = data.userAddress;
@@ -17,8 +18,21 @@ exports.postOrder = async (req, res) => {
       updateUser.phoneNumber = data.userPhoneNumber;
     }
     updateUser.save();
+
+    const already = await Order.findOne(data);
+    if (already) {
+      return res.send({
+        status: 'You have alradey orderd this Item',
+        data: already,
+      });
+    }
+
     const postnewOrder = await Order.create(data);
-    return res.send({ status: 'success', data: postnewOrder, updateUser });
+    return res.send({
+      status: 'You have Ordered successfully',
+      data: postnewOrder,
+      updateUser,
+    });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });
   }
@@ -26,6 +40,19 @@ exports.postOrder = async (req, res) => {
 exports.getOrders = async (req, res) => {
   try {
     const result = await Order.find();
+    return res.send({ status: 'success', count: result.length, data: result });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};
+exports.getUserOrders = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const result = await Order.find({ user: id })
+      .populate('Internet')
+      .populate('user')
+      .populate('Gas')
+      .populate('Oil');
     return res.send({ status: 'success', count: result.length, data: result });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });

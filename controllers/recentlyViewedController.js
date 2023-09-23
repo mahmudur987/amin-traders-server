@@ -6,17 +6,22 @@ const app = require('../app');
 exports.postRecentViewed = async (req, res) => {
   try {
     const data = req.body;
-    const alredyAdded = await RecentlyViewed.findOne(data);
-    if (alredyAdded) {
-      return res.send({ status: 'alredy added', data: alredyAdded });
+    const already = await RecentlyViewed.findOne(data);
+
+    if (already) {
+      return res.send({ status: 'already added' });
     }
+
     const result = await RecentlyViewed.create(data);
+
+    console.log(result);
+
     return res.send({ status: 'success', data: result });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });
   }
 };
-exports.getRecentViewed = async (req, res) => {
+exports.getAllRecentViewed = async (req, res) => {
   try {
     const result = await RecentlyViewed.find();
     // const result = (await RecentlyViewed.find()).filter((x) => x.userId);
@@ -30,11 +35,12 @@ cron.schedule('* * * * *', async () => {
   try {
     const twoDaysAgo = new Date();
     twoDaysAgo.setDate(twoDaysAgo.getDate() - 1);
-    console.log(twoDaysAgo);
+
     const result = await RecentlyViewed.deleteMany({
       viewedAt: { $lt: twoDaysAgo },
     });
-    console.log(result);
+
+    return { data: result };
   } catch (error) {
     console.error('Error in cron job:', error);
   }
@@ -44,10 +50,9 @@ exports.getRecentView = async (req, res) => {
   const userId = req.params.id;
 
   try {
-    const viewedProducts = await RecentlyViewed.find({ userId })
-      .sort({ viewedAt: -1 })
-      .populate('gasProduct')
-      .populate('oilProduct');
+    const viewedProducts = await RecentlyViewed.find({ userId }).sort({
+      viewedAt: -1,
+    });
 
     return res.send({
       status: 'success',

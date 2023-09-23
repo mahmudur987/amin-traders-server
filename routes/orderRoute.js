@@ -3,13 +3,14 @@ const router = express.Router();
 const {
   postOrder,
   getOrders,
+  getUserOrders,
   postOrderRecived,
   postOrderDeliver,
   orderDelete,
 } = require('../controllers/orderController');
 
 router.route('/').get(getOrders).post(postOrder);
-router.route('/:id').delete(orderDelete);
+router.route('/:id').get(getUserOrders).delete(orderDelete);
 router.route('/orderrecive/:id').post(postOrderRecived);
 router.route('/orderdeliver/:id').post(postOrderDeliver);
 // router.route('/monthly-plan/:year').get(getMonthlyPlan);
