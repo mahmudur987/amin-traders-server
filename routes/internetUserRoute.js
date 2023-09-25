@@ -6,6 +6,7 @@ const {
   postInternetUser,
   UpdateInternetBill,
   UpdateInternetUserInfo,
+  deleteInternetUser,
 } = require('../controllers/internetUserController');
 
 router.route('/').get(getInternetUsers).post(postInternetUser);
@@ -13,7 +14,8 @@ router
   .route('/:id')
   .get(getInternetUser)
   .post(UpdateInternetBill)
-  .patch(UpdateInternetUserInfo);
+  .patch(UpdateInternetUserInfo)
+  .delete(deleteInternetUser);
 // router.route('/tour-states').get(getTourState);
 // router.route('/monthly-plan/:year').get(getMonthlyPlan);
 // router.route('/').get(getAllTours).post(createTours);

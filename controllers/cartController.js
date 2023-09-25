@@ -5,13 +5,13 @@ const app = require('../app');
 app.use(express.json());
 
 exports.postCart = async (req, res) => {
-  const data = req.body;
-  const sameCart = await Cart.findOne(data);
-
-  if (sameCart) {
-    return res.send({ status: 'Already Added', data: sameCart });
-  }
   try {
+    const data = req.body;
+    const sameCart = await Cart.findOne(data);
+
+    if (sameCart) {
+      return res.send({ status: 'Already Added', data: sameCart });
+    }
     const postnewcart = await Cart.create(data);
 
     return res.send({ status: 'Successfully Added', data: postnewcart });
@@ -21,7 +21,11 @@ exports.postCart = async (req, res) => {
 };
 exports.getCarts = async (req, res) => {
   try {
-    const result = await Cart.find();
+    const result = await Cart.find()
+      .populate('Gas')
+      .populate('Oil')
+      .populate('Bag')
+      .populate('userId');
     return res.send({ status: 'success', count: result.length, data: result });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });

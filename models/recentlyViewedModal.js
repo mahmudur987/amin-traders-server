@@ -5,22 +5,27 @@ const recentlyViewedSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
-  gasProduct: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Gas',
-    },
-  ],
+  gasProductId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Gas',
+  },
 
-  oilProduct: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Oil',
-    },
-  ],
+  oilProductId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Oil',
+  },
   viewedAt: { type: Date, default: Date.now },
+  userEmail: {
+    type: String,
+  },
+  serviceName: {
+    type: String,
+  },
+  packageName: {
+    type: String,
+  },
 });
 
-const RecentlyViewed = mongoose.model('RecentlyViewed', recentlyViewedSchema);
+const RecentlyViewed = mongoose.model('RecentlyViewes', recentlyViewedSchema);
 
 module.exports = RecentlyViewed;

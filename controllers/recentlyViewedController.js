@@ -24,7 +24,6 @@ exports.postRecentViewed = async (req, res) => {
 exports.getAllRecentViewed = async (req, res) => {
   try {
     const result = await RecentlyViewed.find();
-    // const result = (await RecentlyViewed.find()).filter((x) => x.userId);
     return res.send({ status: 'success', count: result.length, data: result });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });
@@ -50,9 +49,12 @@ exports.getRecentView = async (req, res) => {
   const userId = req.params.id;
 
   try {
-    const viewedProducts = await RecentlyViewed.find({ userId }).sort({
-      viewedAt: -1,
-    });
+    const viewedProducts = await RecentlyViewed.find({ userId })
+      .sort({
+        viewedAt: -1,
+      })
+      .populate('gasProductId')
+      .populate('oilProductId');
 
     return res.send({
       status: 'success',

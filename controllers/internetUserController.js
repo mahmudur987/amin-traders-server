@@ -87,3 +87,13 @@ exports.UpdateInternetUserInfo = async (req, res) => {
     return res.status(400).send({ status: 'Error', Error: err });
   }
 };
+exports.deleteInternetUser = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const user = await InternetUser.findByIdAndRemove(id);
+
+    return res.send({ status: 'successfully delete', data: user });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};
