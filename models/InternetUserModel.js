@@ -15,7 +15,10 @@ const UserSchema = new mongoose.Schema({
   email: String,
   address: String,
   serviceName: String,
-  packageName: String,
+  packageName: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'InternetPackage',
+  },
   PaymentInfo: [PaymentInfoSchema], // Embed the PaymentInfo subdocument array
 });
 

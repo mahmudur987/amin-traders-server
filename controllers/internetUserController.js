@@ -20,7 +20,7 @@ exports.postInternetUser = async (req, res) => {
 };
 exports.getInternetUsers = async (req, res) => {
   try {
-    const result = await InternetUser.find();
+    const result = await InternetUser.find().populate('packageName');
     return res.send({ status: 'success', count: result.length, data: result });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });
@@ -29,7 +29,7 @@ exports.getInternetUsers = async (req, res) => {
 exports.getInternetUser = async (req, res) => {
   const id = req.params.id;
   try {
-    const result = await InternetUser.findById(id);
+    const result = await InternetUser.findById(id).populate('packageName');
 
     return res.send({ status: 'success', data: result });
   } catch (err) {

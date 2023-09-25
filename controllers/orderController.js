@@ -97,7 +97,11 @@ exports.orderDelete = async (req, res) => {
   const id = req.params.id;
   try {
     const result = await Order.findByIdAndRemove(id);
-    return res.send({ status: 'success', count: result.length, data: result });
+    return res.send({
+      status: 'you have delete this item successfully',
+      count: result.length,
+      data: result,
+    });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });
   }
