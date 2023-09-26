@@ -33,9 +33,9 @@ exports.postAllBag = async (req, res) => {
 };
 exports.postBag = async (req, res) => {
   const data = req.body;
-  console.log(data);
+
   try {
-    const result = await GasPackage.create(data);
+    const result = await Bag.create(data);
     return res.send({ status: 'success', data: result });
   } catch (err) {
     return res.status(400).send({ status: 'Error', Error: err });

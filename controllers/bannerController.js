@@ -5,7 +5,7 @@ app.use(express.json());
 
 exports.postBanner = async (req, res) => {
   const data = req.body;
-  console.log(data);
+
   try {
     const postBanner = await Banner.create(data);
     // const postBanner = await Banner.insertMany(data);
@@ -24,7 +24,7 @@ exports.getBanners = async (req, res) => {
 };
 exports.deleteBanner = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
+
   try {
     const result = await Banner.findByIdAndRemove(id);
     return res.send({ status: 'success', data: result });

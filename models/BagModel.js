@@ -21,7 +21,7 @@ const bagSchema = new mongoose.Schema({
     type: Number,
   },
   price: {
-    type: Number,
+    type: Number || String,
   },
   image: {
     type: String,
@@ -43,7 +43,7 @@ const bagSchema = new mongoose.Schema({
       default: false,
     },
     lessPrice: {
-      type: Number,
+      type: Number || String,
       default: 0,
     },
   },

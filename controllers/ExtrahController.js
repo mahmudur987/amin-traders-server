@@ -76,7 +76,7 @@ exports.deleteFedback = async (req, res) => {
 
 exports.postInternetConnectionRequest = async (req, res) => {
   const data = req.body;
-  console.log(data);
+
   try {
     const already = await ICR.findOne(data);
     if (already) {

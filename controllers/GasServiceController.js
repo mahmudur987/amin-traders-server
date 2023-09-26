@@ -33,7 +33,7 @@ exports.postAllPackage = async (req, res) => {
 };
 exports.postPackage = async (req, res) => {
   const data = req.body;
-  console.log(data);
+
   try {
     const result = await GasPackage.create(data);
     return res.send({ status: 'success', data: result });

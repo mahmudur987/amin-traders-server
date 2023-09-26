@@ -11,7 +11,5 @@ const {
 
 router.route('/').get(getAllBag).post(postBag);
 router.route('/:id').get(getAbag).post(updateBag).delete(deleteBag);
-// router.route('/monthly-plan/:year').get(getMonthlyPlan);
-// router.route('/').get(getAllTours).post(createTours);
-// router.route('/:id').get(getTour).patch(updateTours).delete(deleteTour);
+
 module.exports = router;
