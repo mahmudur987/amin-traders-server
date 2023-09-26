@@ -54,8 +54,8 @@ exports.getRecentView = async (req, res) => {
         viewedAt: -1,
       })
       .populate('gasProductId')
-      .populate('oilProductId');
-
+      .populate('oilProductId')
+      .populate('bagProductId');
     return res.send({
       status: 'success',
       count: viewedProducts.length,

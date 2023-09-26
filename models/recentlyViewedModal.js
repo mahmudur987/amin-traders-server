@@ -14,6 +14,10 @@ const recentlyViewedSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Oil',
   },
+  bagProductId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Bags',
+  },
   viewedAt: { type: Date, default: Date.now },
   userEmail: {
     type: String,

@@ -8,7 +8,7 @@ const cartSchema = new mongoose.Schema({
   packageName: { type: String },
   Gas: { type: mongoose.Schema.Types.ObjectId, ref: 'Gas' },
   Oil: { type: mongoose.Schema.Types.ObjectId, ref: 'Oil' },
-  Bag: { type: mongoose.Schema.Types.ObjectId, ref: 'Bag' },
+  Bag: { type: mongoose.Schema.Types.ObjectId, ref: 'Bags' },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   paymentAmount: { type: Number },
   Addingdate: { type: Date, default: Date.now },

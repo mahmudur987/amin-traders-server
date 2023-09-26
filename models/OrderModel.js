@@ -34,10 +34,17 @@ const orderSchema = new mongoose.Schema({
       ref: 'Gas',
     },
   ],
+  Bag: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+
+      ref: 'Bags',
+    },
+  ],
   orderDate: { type: Date, default: Date.now },
   paymentAmount: { type: Number },
   paymentStatus: { type: String },
-  orderStatus: { type: String },
+  orderStatus: { type: String, default: 'pending' },
   orderQuantity: { type: Number, default: 1 },
   delivery: {
     status: { type: Boolean, default: false },

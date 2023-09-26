@@ -49,9 +49,11 @@ exports.getUserOrders = async (req, res) => {
   const id = req.params.id;
   try {
     const result = await Order.find({ user: id })
+      .sort({ orderDate: -1 })
       .populate('Internet')
       .populate('user')
       .populate('Gas')
+      .populate('Bag')
       .populate('Oil');
     return res.send({ status: 'success', count: result.length, data: result });
   } catch (err) {

@@ -10,6 +10,7 @@ const userRouter = require('./routes/userRoute');
 const orderRouter = require('./routes/orderRoute');
 const cartRouter = require('./routes/cartRoute');
 const internetUserRouter = require('./routes/internetUserRoute');
+const bagRouter = require('./routes/bagRoute');
 const BannerRouter = require('./routes/bannerRoute');
 const recentViewedRouter = require('./routes/recentViewedRoute');
 const extrahRouter = require('./routes/ExtrahRoute');
@@ -41,6 +42,7 @@ app.use('/internetusers', internetUserRouter);
 app.use('/banner', BannerRouter);
 app.use('/recentview', recentViewedRouter);
 app.use('/extrah', extrahRouter);
+app.use('/bag', bagRouter);
 
 // server default route
 app.get('/', (req, res) => {
