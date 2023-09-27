@@ -10,6 +10,8 @@ const {
   getInternetConnectionRequest,
   getAboutUs,
   postAboutus,
+  UpdateInternetConnectionRequest,
+  DeleteInternetConnectionRequest,
 } = require('../controllers/ExtrahController');
 
 router.route('/').get(getAddressDetails);
@@ -20,6 +22,10 @@ router
   .route('/inter-connection-request')
   .post(postInternetConnectionRequest)
   .get(getInternetConnectionRequest);
+router
+  .route('/inter-connection-request/:id')
+  .post(UpdateInternetConnectionRequest)
+  .delete(DeleteInternetConnectionRequest);
 
 router.route('/aboutus').get(getAboutUs).post(postAboutus);
 

@@ -13,6 +13,22 @@ const addressDetailsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  whatsAppNumber: {
+    type: String,
+    required: true,
+  },
+  roketNumber: {
+    type: String,
+    required: true,
+  },
+  bkashNumber: {
+    type: String,
+    required: true,
+  },
+  nagadNumber: {
+    type: String,
+    required: true,
+  },
   ImageUrl: {
     type: String,
   },

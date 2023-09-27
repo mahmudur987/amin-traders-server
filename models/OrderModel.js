@@ -46,6 +46,17 @@ const orderSchema = new mongoose.Schema({
   paymentStatus: { type: String },
   orderStatus: { type: String, default: 'pending' },
   orderQuantity: { type: Number, default: 1 },
+  onlinePayment: {
+    PaymentMethod: {
+      type: String,
+    },
+    transactionId: {
+      type: String,
+    },
+    userPhoneNumber: {
+      type: String,
+    },
+  },
   delivery: {
     status: { type: Boolean, default: false },
     deliveryDate: { type: Date },

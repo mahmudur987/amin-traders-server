@@ -99,6 +99,26 @@ exports.getInternetConnectionRequest = async (req, res) => {
     return res.status(400).send({ status: 'Error', Error: err });
   }
 };
+exports.UpdateInternetConnectionRequest = async (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+  try {
+    const result = await ICR.findByIdAndUpdate(id, data);
+    return res.send({ status: 'Successfully Update status', data: result });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};
+exports.DeleteInternetConnectionRequest = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const result = await ICR.findByIdAndRemove(id);
+    return res.send({ status: 'Successfully Delete', data: result });
+  } catch (err) {
+    return res.status(400).send({ status: 'Error', Error: err });
+  }
+};
 
 // AboutUs
 
