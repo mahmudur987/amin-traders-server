@@ -2,7 +2,7 @@ const express = require('express');
 const app = require('./app');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
+const cors = require('cors');
 const internetServiceRouter = require('./routes/internetServiceRoute');
 const gasServiceRouter = require('./routes/gasServiceRoutes');
 const oilServiceRouter = require('./routes/oilserviceRoute');
@@ -15,6 +15,7 @@ const BannerRouter = require('./routes/bannerRoute');
 const recentViewedRouter = require('./routes/recentViewedRoute');
 const extrahRouter = require('./routes/ExtrahRoute');
 // middlewerre
+app.use(cors());
 dotenv.config();
 app.use(express.json());
 
